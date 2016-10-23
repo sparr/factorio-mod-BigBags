@@ -1,4 +1,5 @@
 ##VERSIONS:
+1.0.19	- factorio 0.14 compatible
 1.0.17	- reduce last 2 tiers of inventory size to avoid window height problems.
 		- add an interface for reset.
 1.0.16	- reduce loot range, otherwise you do have time to see if something was dropped on the ground...

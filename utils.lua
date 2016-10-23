@@ -1,4 +1,4 @@
--- utils.lua by binbinhfr, v1.0.15
+-- utils.lua by binbinhfr, v1.0.16
 
 -- define debug_status to 1 or nil in the control.lua, before statement require("utils")
 -- define also debug_file and debug_mod_name
@@ -289,14 +289,13 @@ function is_dev(player)
 end
 
 --------------------------------------------------------------------------------------
-function dupli_proto( type, name1, name2, adaptMiningResult )
+function dupli_proto( type, name1, name2 )
 	if data.raw[type][name1] then 
 		local proto = table.deepcopy(data.raw[type][name1])
 		proto.name = name2
-		if adaptMiningResult then
-			if proto.minable and proto.minable.result then proto.minable.result = name2	end
-		end
+		if proto.minable and proto.minable.result then proto.minable.result = name2	end
 		if proto.place_result then proto.place_result = name2 end
+		if proto.take_result then proto.take_result = name2	end
 		if proto.result then proto.result = name2 end
 		return(proto)
 	else
