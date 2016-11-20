@@ -10,9 +10,6 @@ function new_size( oldvalue, offset, factor )
 	end
 end
 
--- inventory size
--- if my_inventory_size then data.raw.player.player.inventory_size = my_inventory_size end
-
 -- running speed
 if my_running_speed_factor and my_running_speed_factor ~= 1 and data.raw.player.player.running_speed == 0.15 then data.raw.player.player.running_speed = 0.15 * my_running_speed_factor end
 
