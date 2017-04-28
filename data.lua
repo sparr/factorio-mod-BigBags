@@ -29,15 +29,21 @@ local function add_techno_level(name,n1,n,add_ingrs)
 		techno.name = name
 	end
 	
-	if add_ingrs then
-		if n >= 1 then
+	if add_ingrs ~= -1 then
+		if n+add_ingrs >= 1 then
 			table.insert(techno.unit.ingredients,{"science-pack-1", 1})
 		end
-		if n >= 2 then
+		if n+add_ingrs >= 2 then
 			table.insert(techno.unit.ingredients,{"science-pack-2", 1})
 		end
-		if n >= 3 then
+		if n+add_ingrs >= 3 then
 			table.insert(techno.unit.ingredients,{"science-pack-3", 1})
+		end
+		if n+add_ingrs >= 4 then
+			table.insert(techno.unit.ingredients,{"production-science-pack", 1})
+		end
+		if n+add_ingrs >= 5 then
+			table.insert(techno.unit.ingredients,{"high-tech-science-pack", 1})
 		end
 	end
 	
@@ -75,7 +81,7 @@ func_techno = function(n,inc)
 	}
 end
 
-add_technos("inventory-size",1,5,true)
+add_technos("inventory-size",1,5,0)
 
 ---------------------------------------------------------------------
 -- toolbelt
@@ -102,7 +108,7 @@ func_techno = function(n,inc)
 	}
 end
 
-add_technos("toolbelt",2,3,true)
+add_technos("toolbelt",2,3,1)
 
 ---------------------------------------------------------------------
 -- pickstick
@@ -148,7 +154,7 @@ func_techno = function(n,inc)
 	}
 end
 
-add_technos("pickstick",1,5,true)
+add_technos("pickstick",1,5,0)
 
 ---------------------------------------------------------------------
 -- character-logistic-slots
@@ -182,7 +188,7 @@ func_techno = function(n,inc)
 	}
 end
 
-add_technos("character-logistic-slots",6,9,false)
+add_technos("character-logistic-slots",6,9,-1)
 
 ---------------------------------------------------------------------
 -- character-logistic-trash-slots
@@ -208,7 +214,7 @@ func_techno = function(n,inc)
 	}
 end
 
-add_technos("character-logistic-trash-slots",3,4,true)
+add_technos("character-logistic-trash-slots",3,4,0)
 
 ---------------------------------------------------------------------
 -- worker-robots-storage
@@ -237,7 +243,7 @@ func_techno = function(n,inc)
 	}
 end
 
-add_technos("worker-robots-storage",4,10,false)
+add_technos("worker-robots-storage",4,10,-1)
 
 ---------------------------------------------------------------------
 -- worker-robots-speed
@@ -264,5 +270,5 @@ func_techno = function(n,inc)
 	}
 end
 
--- add_technos("worker-robots-speed",6,8,false)
+-- add_technos("worker-robots-speed",6,8,-1)
 

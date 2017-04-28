@@ -1,4 +1,5 @@
 ##VERSIONS:
+1.0.25	- more recipes balance
 1.0.24	- suppress robot speed, change robot storage recipe
 1.0.23	- correct log slot recipe
 1.0.22	- correct trash slot size
