@@ -39,9 +39,6 @@ local function add_techno_level(name,n1,n,add_ingrs)
 		if n >= 3 then
 			table.insert(techno.unit.ingredients,{"science-pack-3", 1})
 		end
-		if n >= 4 then
-			table.insert(techno.unit.ingredients,{"alien-science-pack", 1})
-		end
 	end
 	
 	data:extend({techno})
@@ -177,7 +174,6 @@ func_techno = function(n,inc)
 				{"science-pack-1", 1},
 				{"science-pack-2", 1},
 				{"science-pack-3", 1},
-				{"alien-science-pack", 1},
 			},
 			time = 30 + 5*inc,
 		},
@@ -231,7 +227,6 @@ func_techno = function(n,inc)
 				{"science-pack-1", 1},
 				{"science-pack-2", 1},
 				{"science-pack-3", 1},
-				{"alien-science-pack", 1},
 			},
 			time = 60
 		},
@@ -259,7 +254,6 @@ func_techno = function(n,inc)
 				{"science-pack-1", 1},
 				{"science-pack-2", 1},
 				{"science-pack-3", 1},
-				{"alien-science-pack", 1},
 			},
 			time = 60,
 		},
