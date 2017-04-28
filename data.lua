@@ -163,7 +163,7 @@ func_techno = function(n,inc)
 		{
 			{
 				type = "character-logistic-slots",
-				modifier = 5,
+				modifier = 6,
 			}
 		},
 		unit =
@@ -193,7 +193,7 @@ func_techno = function(n,inc)
 		{
 			{
 				type = "character-logistic-trash-slots",
-				modifier = 5
+				modifier = 6
 			}
 		},
 		prerequisites = {"character-logistic-trash-slots-2"},

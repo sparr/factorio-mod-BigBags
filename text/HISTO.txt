@@ -1,4 +1,6 @@
 ##VERSIONS:
+1.0.22	- correct trash slot size
+1.0.21	- factorio 0.15 compatible
 1.0.20	- clean the remaining my_inventory_size variable.
 1.0.19	- factorio 0.14 compatible
 1.0.17	- reduce last 2 tiers of inventory size to avoid window height problems.
