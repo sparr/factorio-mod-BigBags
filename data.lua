@@ -228,6 +228,8 @@ func_techno = function(n,inc)
 				{"science-pack-1", 1},
 				{"science-pack-2", 1},
 				{"science-pack-3", 1},
+				{"production-science-pack", 1},
+				{"high-tech-science-pack", 1},
 			},
 			time = 60
 		},
@@ -235,7 +237,7 @@ func_techno = function(n,inc)
 	}
 end
 
-add_technos("worker-robots-storage",4,8,false)
+add_technos("worker-robots-storage",4,10,false)
 
 ---------------------------------------------------------------------
 -- worker-robots-speed
@@ -262,5 +264,5 @@ func_techno = function(n,inc)
 	}
 end
 
-add_technos("worker-robots-speed",6,8,false)
+-- add_technos("worker-robots-speed",6,8,false)
 
