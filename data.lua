@@ -91,7 +91,7 @@ data.raw.technology["toolbelt"].upgrade = true
 func_techno = function(n,inc)
 	return {
 		icon = "__base__/graphics/technology/toolbelt.png",
-		icon_size = 32,
+		icon_size = 128,
 		effects =
 		{
 			{
@@ -166,7 +166,7 @@ data.raw.technology["character-logistic-slots-5"].unit.count = 200
 func_techno = function(n,inc)
 	return {
 		icon = "__base__/graphics/technology/character-logistic-slots.png",
-		icon_size = 32,
+		icon_size = 128,
 		effects =
 		{
 			{
@@ -198,7 +198,7 @@ add_technos("character-logistic-slots",6,9,-1)
 func_techno = function(n,inc)
 	return {
 		icon = "__base__/graphics/technology/character-logistic-trash-slots.png",
-		icon_size = 32,
+		icon_size = 128,
 		effects =
 		{
 			{
@@ -225,7 +225,7 @@ add_technos("character-logistic-trash-slots",3,4,0)
 func_techno = function(n,inc)
 	return {
 		icon = "__base__/graphics/technology/worker-robots-storage.png",
-		icon_size = 32,
+		icon_size = 128,
 		effects = {
 			{
 				type = "worker-robot-storage",
@@ -255,7 +255,7 @@ add_technos("worker-robots-storage",4,10,-1)
 func_techno = function(n,inc)
 	return {
 		icon = "__base__/graphics/technology/worker-robots-speed.png",
-		icon_size = 32,
+		icon_size = 128,
 		effects = {
 			{
 				type = "worker-robot-speed",
