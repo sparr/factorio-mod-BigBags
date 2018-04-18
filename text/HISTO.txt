@@ -1,4 +1,5 @@
 ##VERSIONS:
+1.0.29	- settings (with the help of magu5026)
 1.0.28	- correct techno icon size to 128
 1.0.27	- factorio 0.16 compatible
 1.0.26	- german locale by Xerus

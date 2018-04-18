@@ -2,7 +2,6 @@
 debug_mod_name = "BigBags"
 debug_file = debug_mod_name .. "-debug.txt"
 require("utils")
-require("config")
 
 --------------------------------------------------------------------------------------
 local function on_configuration_changed(data)

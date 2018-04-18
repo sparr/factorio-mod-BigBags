@@ -1,4 +1,3 @@
-require("config")
 
 		-- vanilla player data :
 		-- inventory_size = 60,

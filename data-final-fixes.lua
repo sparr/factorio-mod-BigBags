@@ -1,4 +1,9 @@
-require( "config" )
+local my_stack_factor = settings.startup['my_stack_factor'].value
+local my_stack_offset = settings.startup['my_stack_offset'].value
+local my_mag_factor = settings.startup['my_mag_factor'].value
+local my_mag_offset = settings.startup['my_mag_offset'].value
+local my_default_req_amount = settings.startup['my_default_req_amount'].value
+local my_running_speed_factor = settings.startup['my_running_speed_factor'].value
 
 function new_size( oldvalue, offset, factor )
 	if oldvalue == nil then oldvalue = 1 end
