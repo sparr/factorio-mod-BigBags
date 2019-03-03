@@ -15,10 +15,10 @@ local function on_configuration_changed(data)
 				for _, player in pairs(game.players) do
 					player.force.reset_technologies()
 					
-					player.force.quickbar_count = 1
-					if player.force.technologies["toolbelt"].researched then
-						player.force.quickbar_count = 2
-					end
+					-- player.force.quickbar_count = 1
+					-- if player.force.technologies["toolbelt"].researched then
+					-- 	player.force.quickbar_count = 2
+					-- end
 
 					c = 0	
 					for i = 1,5 do

@@ -1,4 +1,5 @@
 ##VERSIONS:
+1.0.30	- factorio 0.17 compatible (no quickbar), change science packs
 1.0.29	- settings (with the help of magu5026)
 1.0.28	- correct techno icon size to 128
 1.0.27	- factorio 0.16 compatible

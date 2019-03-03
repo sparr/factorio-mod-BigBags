@@ -30,19 +30,19 @@ local function add_techno_level(name,n1,n,add_ingrs)
 	
 	if add_ingrs ~= -1 then
 		if n+add_ingrs >= 1 then
-			table.insert(techno.unit.ingredients,{"science-pack-1", 1})
+			table.insert(techno.unit.ingredients,{"automation-science-pack", 1})
 		end
 		if n+add_ingrs >= 2 then
-			table.insert(techno.unit.ingredients,{"science-pack-2", 1})
+			table.insert(techno.unit.ingredients,{"logistic-science-pack", 1})
 		end
 		if n+add_ingrs >= 3 then
-			table.insert(techno.unit.ingredients,{"science-pack-3", 1})
+			table.insert(techno.unit.ingredients,{"chemical-science-pack", 1})
 		end
 		if n+add_ingrs >= 4 then
 			table.insert(techno.unit.ingredients,{"production-science-pack", 1})
 		end
 		if n+add_ingrs >= 5 then
-			table.insert(techno.unit.ingredients,{"high-tech-science-pack", 1})
+			table.insert(techno.unit.ingredients,{"utility-science-pack", 1})
 		end
 	end
 	
@@ -82,33 +82,6 @@ end
 
 add_technos("inventory-size",1,5,0)
 
----------------------------------------------------------------------
--- toolbelt
-
-data.raw.technology["toolbelt"].upgrade = true
-
-func_techno = function(n,inc)
-	return {
-		icon = "__base__/graphics/technology/toolbelt.png",
-		icon_size = 128,
-		effects =
-		{
-			{
-				type = "quick-bar-count",
-				modifier = 1
-			}
-		},
-		unit =
-		{
-			count = 200+50*inc,
-			ingredients = {},
-			time = 35+5*inc
-		},
-		order = "c-k-m..n"
-	}
-end
-
-add_technos("toolbelt",2,3,1)
 
 ---------------------------------------------------------------------
 -- pickstick
@@ -178,9 +151,9 @@ func_techno = function(n,inc)
 			count = 250+50*inc,
 			ingredients =
 			{
-				{"science-pack-1", 1},
-				{"science-pack-2", 1},
-				{"science-pack-3", 1},
+				{"automation-science-pack", 1},
+				{"logistic-science-pack", 1},
+				{"chemical-science-pack", 1},
 				{"production-science-pack", 1},
 			},
 			time = 30 + 5*inc,
@@ -234,11 +207,11 @@ func_techno = function(n,inc)
 		unit = {
 			count = 500+inc*100,
 			ingredients = {
-				{"science-pack-1", 1},
-				{"science-pack-2", 1},
-				{"science-pack-3", 1},
+				{"automation-science-pack", 1},
+				{"logistic-science-pack", 1},
+				{"chemical-science-pack", 1},
 				{"production-science-pack", 1},
-				{"high-tech-science-pack", 1},
+				{"utility-science-pack", 1},
 			},
 			time = 60
 		},
@@ -264,9 +237,9 @@ func_techno = function(n,inc)
 		unit = {
 			count = 650+50*inc,
 			ingredients = {
-				{"science-pack-1", 1},
-				{"science-pack-2", 1},
-				{"science-pack-3", 1},
+				{"automation-science-pack", 1},
+				{"logistic-science-pack", 1},
+				{"chemical-science-pack", 1},
 			},
 			time = 60,
 		},
