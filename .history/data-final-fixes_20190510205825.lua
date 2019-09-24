@@ -16,7 +16,7 @@ function new_size( oldvalue, offset, factor )
 end
 
 -- running speed
-if my_running_speed_factor and my_running_speed_factor ~= 1 and data.raw.character.character.running_speed == 0.15 then data.raw.character.character.running_speed = 0.15 * my_running_speed_factor end
+if my_running_speed_factor and my_running_speed_factor ~= 1 and data.raw.player.character.running_speed == 0.15 then data.raw.player.player.running_speed = 0.15 * my_running_speed_factor end
 
 -- item stacks
 for _,dat in pairs(data.raw) do
