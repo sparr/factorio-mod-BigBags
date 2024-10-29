@@ -139,7 +139,7 @@ func_techno = function(n,inc)
 		effects = {
 			{
 				type = "worker-robot-storage",
-				modifier = "1"
+				modifier = 1
 			}
 		},
 		unit = {

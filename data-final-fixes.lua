@@ -33,18 +33,27 @@ end
 -- ammo stacks
 for _, ammo in pairs(data.raw.ammo) do
 	-- ammo.stack_size = new_size( ammo.stack_size, my_stack_offset, my_stack_factor )	-- ammo are already modified in the previsous loop
-	ammo.magazine_size = new_size( ammo.magazine_size, my_mag_offset, my_mag_factor )	
-	if my_default_req_amount then ammo.default_request_amount = my_default_req_amount end
+	if ammo.stack_size and type(ammo.stack_size) == "number" and ammo.stack_size > 1 then
+		ammo.magazine_size = new_size( ammo.magazine_size, my_mag_offset, my_mag_factor )
+		if my_default_req_amount then ammo.default_request_amount = my_default_req_amount end
+	end
 end
 
 -- module stacks
 for _, modu in pairs(data.raw["module"]) do
-	modu.stack_size = new_size( modu.stack_size, my_stack_offset, my_stack_factor )	
+	if modu.stack_size and type(modu.stack_size) == "number" and modu.stack_size > 1 then
+		modu.stack_size = new_size( modu.stack_size, my_stack_offset, my_stack_factor )
+	end
 end
 
 -- capsule stacks
 for _, caps in pairs(data.raw["capsule"]) do
-	caps.stack_size = new_size( caps.stack_size, my_stack_offset, my_stack_factor )	
+	if caps.stack_size and type(caps.stack_size) == "number" and caps.stack_size > 1 then
+		caps.stack_size = new_size( caps.stack_size, my_stack_offset, my_stack_factor )
+	end
 end
 
 
+
+
+--discharge-defense-remote"
