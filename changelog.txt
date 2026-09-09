@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.0
+Date: 10.09.2026
+  Features:
+    - Updated to 2.1.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.37
 Date: 22.11.2024
   Features:
@@ -14,100 +19,100 @@ Date: 30.10.2024
     - Svagorich.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.34
-Date: xx.xx.xxxx
+Date: 18.03.2020
   Locale:
     - Added russian translation.
   Thanks:
     - Va7ya.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.33
-Date: xx.xx.xxxx
+Date: 18.03.2020
   Changes:
     - Removed now obsolete character logisitic slot techs due to factorio 0.18.13.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.32
-Date: xx.xx.xxxx
+Date: 14.03.2020
   Features:
     - Updated to 0.18 
   Thanks:
     - Myricaulus.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.31
-Date: xx.xx.xxxx
+Date: 24.09.2019
   Features:
     - Fixed non-default walking speed issue 
   Thanks:
     - jrob    
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.30
-Date: xx.xx.xxxx
+Date: 03.03.2019
   Features:
     - Updated to 0.17
   Thanks:
     - Myricaulus.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.29
-Date: xx.xx.xxxx
+Date: 18.04.2018
   Bugfixes:
     - Settings.
   Thanks:
     - To magu5026 for the help.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.28
-Date: xx.xx.xxxx
+Date: 23.01.2018
   Graphics:
     - Correct tech icon size to 128.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.27
-Date: xx.xx.xxxx
+Date: 15.12.2017
   Features:
     - Updated to 0.16.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.26
-Date: xx.xx.xxxx
+Date: 20.07.2017
   Locale:
     - German locale.
   Thanks:
     - Xerus.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.25
-Date: xx.xx.xxxx
+Date: 28.04.2017
   Changes:
     - More recipes balance.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.24
-Date: xx.xx.xxxx
+Date: 28.04.2017
   Changes:
     - Reduced robot speed.
     - Robot storage recipe.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.23
-Date: xx.xx.xxxx
+Date: 28.04.2017
   Bugfixes:
     - Corrected log slot recipe.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.22
-Date: xx.xx.xxxx
+Date: 28.04.2017
   Bugfixes:
     - Corrected trash slot size.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.21
-Date: xx.xx.xxxx
+Date: 28.04.2017
   Features:
     - Updated to 0.15.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.20
-Date: xx.xx.xxxx
+Date: 20.11.2016
   Bugfixes:
     - Clean the remaining "my_inventory_size" variable.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.19
-Date: xx.xx.xxxx
+Date: 23.10.2016
   Features:
     - Updated to 0.14.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.17
-Date: xx.xx.xxxx
+Date: 09.08.2016
   Features:
     - Added an interface for reset.
   Changes:
@@ -119,7 +124,7 @@ Date: xx.xx.xxxx
     - Reduce loot range, otherwise you do have time to see if something was dropped on the ground.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.15
-Date: xx.xx.xxxx
+Date: 30.07.2016
   Changes:
     - Decreased range of "item-pick-range" that was a problem when you want to pickup a few objects on a belt.
 ---------------------------------------------------------------------------------------------------
@@ -130,7 +135,7 @@ Date: xx.xx.xxxx
     - Added some more tiers to character slots, trash, etc...
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.13
-Date: xx.xx.xxxx
+Date: 27.07.2016
   Changes:
     - Add a Techs for inventory size, with 4 tiers (new possibility in factorio 0.13) compatible with previous versions that have fixed free inventory size: when the mod is already installed, the research is offered (to avoid losing a part of your inventory...)
     - Add a Tech for reach distance and other distance, with 3 tiers.
@@ -147,12 +152,12 @@ Date: xx.xx.xxxx
     - Minors fixes.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.10
-Date: xx.xx.xxxx
+Date: 29.06.2016
   Bugfixes:
     - Correction to reflect a bug correction in 0.13.1.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.9
-Date: xx.xx.xxxx
+Date: 27.06.2016
   Features:
     - Updated to 0.13.
   Changes:
@@ -161,27 +166,27 @@ Date: xx.xx.xxxx
     - Pb with logistic request amount implementation corrected.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.8
-Date: xx.xx.xxxx
+Date: 29.04.2016
   Bugfixes:
     - Corrected double modification of ammo stack.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.7
-Date: xx.xx.xxxx
+Date: 29.04.2016
   Changes:
     - Switch to data-final-fixes.lua to support mods like bobplates.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.6
-Date: xx.xx.xxxx
+Date: 27.04.2016
   Changes:
     - Add a linear formula to change stack size (new=A+B*old).
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.5
-Date: xx.xx.xxxx
+Date: 27.04.2016
   Changes:
     - Improves multiplayer compatibility.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
-Date: xx.xx.xxxx
+Date: 23.04.2016
   Changes:
     - If "my_running_speed_factor, -1", do not set running speed to default 0.15 to avoid interfering with other mods that change it sooner.
   Info:
@@ -189,17 +194,17 @@ Date: xx.xx.xxxx
     - Do not change stack size for special "unqiue" items which stack size is 1 (like cars, tanks, etc...).
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
-Date: xx.xx.xxxx
+Date: 15.04.2016
   Changes:
     - Running speed factor default to 1 to avoid disturbing users.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
-Date: xx.xx.xxxx
+Date: 10.04.2016
   Features:
     - Improves multiplayer compatibility.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1
-Date: xx.xx.xxxx
+Date: 03.04.2016
   Changes:
     - More consistent with game logic. 
     - This update introduces technologies for extra: toolbelt, Logistic slots, trash slots, robot storage, robot speed.
@@ -208,6 +213,6 @@ Date: xx.xx.xxxx
     - It also suppresses mining options that will be available in another mod.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
-Date: xx.xx.xxxx
+Date: 01.04.2016
   Features:
     - initial release, no technologies, everything was just free!
