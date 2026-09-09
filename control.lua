@@ -84,3 +84,13 @@ end
 remote.add_interface( "bigbags", interface )
 
 -- /c remote.call( "bigbags", "reset" )
+
+
+-------------------------------------------------------------------------------
+--[[Tests]]
+-- bb-tests is never published, so this can never fire on a player's machine.
+if script.active_mods["factorio-test"] and script.active_mods["bb-tests"] then
+    require("__factorio-test__/init")({ "test.ft.bigbags" }, {
+        load_luassert = true, game_speed = 100,
+    })
+end

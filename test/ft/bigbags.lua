@@ -1,0 +1,112 @@
+--- What Big Bags is for: bigger stacks, more slots, longer reach.
+---
+--- The mod is almost entirely data stage. Its technologies hand out force bonuses, and
+--- data-final-fixes rewrites stack sizes across every prototype. Both are checked here
+--- against the settings the mod ships with, since a factor that quietly stopped applying
+--- would leave the mod loading perfectly and doing nothing.
+
+local FACTOR = settings.startup["my_stack_factor"].value
+local OFFSET = settings.startup["my_stack_offset"].value
+
+describe("the technologies it adds", function()
+    test("exist at all five levels", function()
+        for _, name in pairs { "inventory-size", "pickstick" } do
+            assert.is_truthy(prototypes.technology[name], name .. " is missing")
+            for n = 2, 5 do
+                assert.is_truthy(prototypes.technology[name .. "-" .. n],
+                    name .. "-" .. n .. " is missing")
+            end
+        end
+    end)
+
+    test("chain their prerequisites", function()
+        -- Each level requires the one below it, so a player cannot skip to level 5.
+        for n = 2, 5 do
+            local tech = prototypes.technology["inventory-size-" .. n]
+            local expected = n == 2 and "inventory-size" or ("inventory-size-" .. (n - 1))
+            assert.is_truthy(tech.prerequisites[expected],
+                "inventory-size-" .. n .. " does not require " .. expected)
+        end
+    end)
+end)
+
+describe("researching them", function()
+    local force
+
+    before_each(function()
+        force = game.forces["player"]
+        for _, name in pairs { "inventory-size", "pickstick" } do
+            force.technologies[name].researched = false
+        end
+    end)
+
+    test("gives the inventory slots the technology promises", function()
+        -- The effect is character-inventory-slots-bonus, 30 at the first level. This is
+        -- the mod's headline feature: research it and the bag is bigger.
+        local before = force.character_inventory_slots_bonus
+        force.technologies["inventory-size"].researched = true
+        assert.equals(before + 30, force.character_inventory_slots_bonus,
+            "researching inventory-size did not widen the inventory")
+    end)
+
+    test("gives the reach the pickstick promises", function()
+        -- Four distance effects at 12 per level, plus loot pickup at a flat 0.5.
+        local build = force.character_build_distance_bonus
+        local reach = force.character_reach_distance_bonus
+        local resource = force.character_resource_reach_distance_bonus
+        force.technologies["pickstick"].researched = true
+        assert.equals(build + 12, force.character_build_distance_bonus, "build distance")
+        assert.equals(reach + 12, force.character_reach_distance_bonus, "reach distance")
+        assert.equals(resource + 12, force.character_resource_reach_distance_bonus,
+            "resource reach distance")
+    end)
+end)
+
+describe("the stack size rewrite", function()
+    -- data-final-fixes walks every prototype and applies offset + size * factor.
+    local function expected(vanilla) return OFFSET + vanilla * FACTOR end
+
+    test("multiplies an ordinary item once", function()
+        -- Vanilla iron-plate is 100.
+        assert.equals(expected(100), prototypes.item["iron-plate"].stack_size,
+            "iron-plate was not scaled by the configured factor")
+    end)
+
+    test("multiplies a module once, not twice", function()
+        -- Vanilla speed-module is 50. The loop over data.raw already covers data.raw.module,
+        -- and data-final-fixes then walks the modules again. The comment on the ammo loop
+        -- just above says as much -- "ammo are already modified in the previous loop" -- and
+        -- ammo skips the second pass for that reason; modules and capsules do not.
+        assert.equals(expected(50), prototypes.item["speed-module"].stack_size,
+            "speed-module stack size is not the configured factor applied once")
+    end)
+
+    test("multiplies a capsule once, not twice", function()
+        -- Vanilla grenade is 100.
+        assert.equals(expected(100), prototypes.item["grenade"].stack_size,
+            "grenade stack size is not the configured factor applied once")
+    end)
+
+    test("leaves things that stack alone alone", function()
+        -- The rewrite is guarded on stack_size > 1, so single stack items such as armor
+        -- and vehicles keep their size.
+        assert.equals(1, prototypes.item["car"].stack_size, "the car should still be one per stack")
+    end)
+end)
+
+describe("the running speed tweak", function()
+    test("still finds the vanilla value it keys on", function()
+        -- data-final-fixes only applies the factor when the vanilla running_speed is exactly
+        -- 0.15. If the base game ever changes that number the feature silently stops working,
+        -- so this pins the assumption rather than the result.
+        local factor = settings.startup["my_running_speed_factor"].value
+        local speed = prototypes.entity["character"].running_speed
+        if factor == 1 then
+            assert.is_true(math.abs(speed - 0.15) < 0.0001,
+                "vanilla running speed is no longer 0.15, so the speed setting would do nothing")
+        else
+            assert.is_true(math.abs(speed - 0.15 * factor) < 0.0001,
+                "the running speed factor was not applied")
+        end
+    end)
+end)

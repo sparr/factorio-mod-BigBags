@@ -1,0 +1,9 @@
+{
+  "modPath": ".",
+  "mods": [
+    "bb-tests"
+  ],
+  "test": {
+    "game_speed": 100
+  }
+}

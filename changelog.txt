@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.1
+Date: 10.09.2026
+  Changes:
+    - Added an integration test suite.
+    - The release download no longer contains the mod's development and test tooling.
+---------------------------------------------------------------------------------------------------
 Version: 2.1.0
 Date: 10.09.2026
   Features:

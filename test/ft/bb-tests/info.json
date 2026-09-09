@@ -1,0 +1,13 @@
+{
+  "name": "bb-tests",
+  "version": "0.0.1",
+  "title": "Big Bags test marker",
+  "author": "Sparr",
+  "contact": "sparr0@gmail.com",
+  "factorio_version": "2.1",
+  "description": "Marks a game as running the Big Bags test suite. Holds no prototypes. Never published to the mod portal.",
+  "dependencies": [
+    "base",
+    "BigBags"
+  ]
+}
