@@ -6,7 +6,7 @@ local my_default_req_amount = settings.startup['my_default_req_amount'].value
 -- 0 means leave every item's own default request amount alone, rather than setting it to 0.
 local my_running_speed_factor = settings.startup['my_running_speed_factor'].value
 
-function new_size( oldvalue, offset, factor )
+local function new_size( oldvalue, offset, factor )
 	if oldvalue == nil then oldvalue = 1 end
 	local v = offset + oldvalue * factor
 	if v > oldvalue then
