@@ -62,6 +62,27 @@ describe("researching them", function()
     end)
 end)
 
+describe("the worker robot storage tiers", function()
+    -- These are registered in data-updates rather than data.lua, so that a mod which
+    -- has already made the chain infinite (Bob's Logistics, 5Dim's New Logistic) is
+    -- visible before we extend it. Adding a finite level after an infinite one aborts
+    -- the game outright, which is what used to happen. Nobody else owns the chain on
+    -- vanilla, so here our levels should be present.
+    test("extend the vanilla chain to level 10", function()
+        for n = 4, 10 do
+            assert.is_truthy(prototypes.technology["worker-robots-storage-" .. n],
+                "worker-robots-storage-" .. n .. " is missing")
+        end
+    end)
+
+    test("keep the three base game levels", function()
+        for n = 1, 3 do
+            assert.is_truthy(prototypes.technology["worker-robots-storage-" .. n],
+                "base worker-robots-storage-" .. n .. " went missing")
+        end
+    end)
+end)
+
 describe("the stack size rewrite", function()
     -- data-final-fixes walks every prototype and applies offset + size * factor.
     local function expected(vanilla) return OFFSET + vanilla * FACTOR end

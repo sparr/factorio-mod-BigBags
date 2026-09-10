@@ -3,6 +3,7 @@ Version: 2.1.2
 Date: xx.xx.xxxx
   Bugfixes:
     - Module and capsule stack sizes are no longer multiplied twice.
+    - No longer fails to load alongside mods that make worker robot storage an infinite research, such as Bob's Logistics and 5Dim's New Logistic.
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.1
 Date: 10.09.2026
