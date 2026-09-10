@@ -39,19 +39,9 @@ for _, ammo in pairs(data.raw.ammo) do
 	end
 end
 
--- module stacks
-for _, modu in pairs(data.raw["module"]) do
-	if modu.stack_size and type(modu.stack_size) == "number" and modu.stack_size > 1 then
-		modu.stack_size = new_size( modu.stack_size, my_stack_offset, my_stack_factor )
-	end
-end
-
--- capsule stacks
-for _, caps in pairs(data.raw["capsule"]) do
-	if caps.stack_size and type(caps.stack_size) == "number" and caps.stack_size > 1 then
-		caps.stack_size = new_size( caps.stack_size, my_stack_offset, my_stack_factor )
-	end
-end
+-- module and capsule stacks are already modified in the loop over data.raw above,
+-- the same way ammo is. Scaling them a second time applied the factor twice: with
+-- the default factor of 10 a speed module stacked to 5000 rather than 500.
 
 
 
