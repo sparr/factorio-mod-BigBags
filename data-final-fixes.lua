@@ -6,6 +6,20 @@ local my_default_req_amount = settings.startup['my_default_req_amount'].value
 -- 0 means leave every item's own default request amount alone, rather than setting it to 0.
 local my_running_speed_factor = settings.startup['my_running_speed_factor'].value
 
+-- Items that can never sit in an inventory: the cursor-only controls and remotes mods
+-- use, and anything flagged as not stacking. Scaling these is meaningless at best, and
+-- invalid at worst, since Factorio rejects a not-stackable item whose stack size is
+-- above 1. An unguarded version of this rewrite is what used to abort startup for
+-- pyanodons, on its single-stack "caravan-control" capsule.
+local never_stacks_flags = { ["not-stackable"] = true, ["only-in-cursor"] = true }
+local function never_stacks( item )
+	if not item.flags then return false end
+	for _, flag in pairs(item.flags) do
+		if never_stacks_flags[flag] then return true end
+	end
+	return false
+end
+
 local function new_size( oldvalue, offset, factor )
 	if oldvalue == nil then oldvalue = 1 end
 	local v = offset + oldvalue * factor
@@ -22,7 +36,8 @@ if my_running_speed_factor and my_running_speed_factor ~= 1 and data.raw.charact
 -- item stacks
 for _,dat in pairs(data.raw) do
 	for _,item in pairs(dat) do
-		if item.stack_size and type(item.stack_size) == "number" and item.stack_size > 1 then
+		if item.stack_size and type(item.stack_size) == "number" and item.stack_size > 1
+			and not never_stacks(item) then
 			item.stack_size = new_size( item.stack_size, my_stack_offset, my_stack_factor )	
 			if my_default_req_amount > 0 then
 				item.default_request_amount = my_default_req_amount

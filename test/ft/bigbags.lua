@@ -108,6 +108,16 @@ describe("the stack size rewrite", function()
             "grenade stack size is not the configured factor applied once")
     end)
 
+    test("leaves items that never stack alone", function()
+        -- An only-in-cursor item never sits in an inventory, so rewriting its stack size
+        -- is meaningless, and on a not-stackable item it is what used to abort startup
+        -- for pyanodons. bb-tests defines one at 5 next to an ordinary control at 5.
+        assert.equals(5, prototypes.item["bb-tests-cursor-only"].stack_size,
+            "a cursor-only item should not have been scaled")
+        assert.equals(expected(5), prototypes.item["bb-tests-ordinary"].stack_size,
+            "the ordinary control item should have been scaled")
+    end)
+
     test("leaves things that stack alone alone", function()
         -- The rewrite is guarded on stack_size > 1, so single stack items such as armor
         -- and vehicles keep their size.
