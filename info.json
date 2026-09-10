@@ -7,7 +7,7 @@
 	"homepage": "https://forums.factorio.com/viewtopic.php?f=92&t=22921",
 	"contact": "https://forums.factorio.com/memberlist.php?mode=viewprofile&u=14267",
 	"factorio_version":"2.1",
-	"dependencies": ["base >= 2.1"],
+	"dependencies": ["base >= 2.1", "? boblogistics", "? 5dim_logistic", "? OD27_5dim_logistic"],
 	"package": {
 		"ignore": [
 			"node_modules/**",
