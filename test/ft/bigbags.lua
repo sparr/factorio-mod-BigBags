@@ -115,6 +115,31 @@ describe("the stack size rewrite", function()
     end)
 end)
 
+describe("the default request amount", function()
+    -- The mod rewrites every item's default logistic request amount so that entering a
+    -- new item does not immediately order a full oversized stack. A value of 0 used to
+    -- set the request amount to 0, which requested nothing; it now means "leave it".
+    --
+    -- LuaItemPrototype does not expose the field, so bb-tests records what the data
+    -- stage produced on a hidden prototype and the value is read back from there.
+    local function observed()
+        local order = prototypes.item["bb-tests-observed"].order
+        return order:match("^default_request_amount=(.+)$")
+    end
+
+    test("follows the setting, and at zero leaves the item's own default", function()
+        local want = settings.startup["my_default_req_amount"].value
+        local got = observed()
+        if want == 0 then
+            assert.equals("nil", got,
+                "a setting of 0 should leave iron-plate's default request amount unset")
+        else
+            assert.equals(tostring(want), got,
+                "the configured request amount was not applied")
+        end
+    end)
+end)
+
 describe("the running speed tweak", function()
     test("still finds the vanilla value it keys on", function()
         -- data-final-fixes only applies the factor when the vanilla running_speed is exactly
