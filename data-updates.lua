@@ -64,32 +64,3 @@ if taken then
 else
 	add_technos("worker-robots-storage",4,10,-1,func_techno)
 end
-
----------------------------------------------------------------------
--- worker-robots-speed
-
-func_techno = function(n,inc)
-	return {
-		icon = "__base__/graphics/technology/worker-robots-speed.png",
-		icon_size = 128,
-		effects = {
-			{
-				type = "worker-robot-speed",
-				modifier = "0.8"
-			}
-		},
-		unit = {
-			count = 650+50*inc,
-			ingredients = {
-				{"automation-science-pack", 1},
-				{"logistic-science-pack", 1},
-				{"chemical-science-pack", 1},
-			},
-			time = 60,
-		},
-		order = "c-k-f-f"..n
-	}
-end
-
--- add_technos("worker-robots-speed",6,8,-1)
-
